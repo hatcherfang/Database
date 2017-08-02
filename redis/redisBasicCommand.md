@@ -7,11 +7,11 @@
 # Command operation
 1. String
   - set key "value"
-  - get key
+  - get key  
 Note: one key max storage 512MB
 2. Hash
   - hmset name:1 user1 user2 user3 20 //name:1 is the key
-  - hgetall name:1
+  - hgetall name:1  
 Note: one hash max storage 2^32-1 key-value pair
 3. List
   - lpush L v1
