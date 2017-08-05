@@ -80,8 +80,8 @@ SELECT * FROM tbl;
 ### MySQL table locking for WRITE  
 The table lock for WRITE has the following features:  
 
-Only session that holds the lock of a table can read and write data from the table.  
-Other sessions cannot read and write from the table until the WRITE lock is released.  
+- Only session that holds the lock of a table can read and write data from the table.  
+- Other sessions cannot read and write from the table until the WRITE lock is released.  
 Let’s go into detail to see how the WRITE lock works.  
 
 First, acquire a WRITE lock from the first session.  
@@ -127,4 +127,4 @@ In this tutorial, we have shown you how to lock and unlock tables for READ and W
 
 ### Related Tutorials  
 
-MySQL Transaction(http://www.mysqltutorial.org/mysql-transaction.aspx)  
+[MySQL Transaction](http://www.mysqltutorial.org/mysql-transaction.aspx)  
