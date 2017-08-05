@@ -1,5 +1,4 @@
 ## **MySQL Table Locking**  
-refer:`http://www.mysqltutorial.org/mysql-table-locking/`  
 ### LOCK and UNLOCK TABLES syntax  
 The simple form of acquiring a lock for a table is as follows:  
 ```
@@ -127,4 +126,5 @@ In this tutorial, we have shown you how to lock and unlock tables for READ and W
 
 ### Related Tutorials  
 
+[MySQL Table Locking](http://www.mysqltutorial.org/mysql-table-locking/)  
 [MySQL Transaction](http://www.mysqltutorial.org/mysql-transaction.aspx)  
