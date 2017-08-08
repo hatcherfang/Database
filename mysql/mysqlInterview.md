@@ -67,7 +67,37 @@ InnoDB的数据文件本身就是索引文件，B+Tree的叶子节点上的data�
 但若再考虑到聚簇索引的存储，就不好定论了。
 ```
 2. mysql 索引结构(B+树结构，实际有三层，三层的原因是磁盘连续存放)  
-- 
+- 几种树形结构：  
+```
+1.搜索二叉树：每个节点有两个子节点，数据量的增大必然导致高度的快速增加，显然这个不适合作为大量数据存储的基础结构。  
+
+2.B树：一棵m阶B树是一棵平衡的m路搜索树。最重要的性质是每个非根节点所包含的关键字个数 j 满足：
+┌m/2┐ - 1 <= j <= m - 1；一个节点的子节点数量会比关键字个数多1，这样关键字就变成了子节点的分割标志。
+一般会在图示中把关键字画到子节点中间，非常形象，也容易和后面的B+树区分。
+由于数据同时存在于叶子节点和非叶子结点中，无法简单完成按顺序遍历B树中的关键字，必须用中序遍历的方法。
+
+3.B+树：一棵m阶B树是一棵平衡的m路搜索树。最重要的性质是每个非根节点所包含的关键字个数 j 满足：  
+  ┌m/2┐ - 1 <= j <= m；子树的个数最多可以与关键字一样多。非叶节点存储的是子树里最小的关键字。  
+
+同时数据节点只存在于叶子节点中，且叶子节点间增加了横向的指针，这样顺序遍历所有数据将变得非常容易。  
+
+4.B*树：一棵m阶B树是一棵平衡的m路搜索树。最重要的两个性质是1每个非根节点所包含的关键字个数 j 满足：  
+  ┌m2/3┐ - 1 <= j <= m；2非叶节点间添加了横向指针。   
+```
+![几种树形结构1](https://github.com/hatcherfang/Database/blob/master/mysql/img/trees_structure1.png)  
+![几种树形结构2](https://github.com/hatcherfang/Database/blob/master/mysql/img/trees_structure2.png)  
+![几种树形结构3](https://github.com/hatcherfang/Database/blob/master/mysql/img/trees_structure3.png)  
+- InnoDB的Page结构  
+```
+ 理解InnoDB的实现不得不提Page结构，Page是整个InnoDB存储的最基本构件，也是InnoDB磁盘管理的最小单位，
+与数据库相关的所有内容都存储在这种Page结构里。  
+
+Page分为几种类型，常见的页类型有数据页（B-tree Node）Undo页（Undo Log Page）系统页（System Page） 
+事务数据页（Transaction System Page）等。  
+
+单个Page的大小是16K（编译宏UNIV_PAGE_SIZE控制），每个Page使用一个32位的int值来唯一标识，
+这也正好对应InnoDB最大64TB的存储容量（16Kib * 2^32 = 64Tib）。   
+```
 
 
 
