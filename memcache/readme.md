@@ -60,6 +60,9 @@ AssertionError: This socket is already used by another greenlet: <bound method W
 
 result: We should use pylibmc better than memcache.  
 
+## A useful command to check memcache server data  
+`memdump --servers="localhost" | xargs memcat --servers="localhost" --verbose {} > result`  
+
 ## Reference  
 - [Best Python memcache client: Python-memcached v/s Pylibmc](https://freethreads.wordpress.com/2013/10/01/best-python-memcache-client-python-memcached-vs-pylibmc/)  
 
