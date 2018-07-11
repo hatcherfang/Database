@@ -47,4 +47,4 @@ mysql> SELECT CAST('3.35' AS signed);
 1 row in set  
 ```
 ## Reference  
-[字符串转int/double CAST与CONVERT函数的用法](http://hongmin118.iteye.com/blog/2029728)  
+- [字符串转int/double CAST与CONVERT函数的用法](http://hongmin118.iteye.com/blog/2029728)  
