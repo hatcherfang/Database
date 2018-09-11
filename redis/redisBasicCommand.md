@@ -19,6 +19,11 @@
 - lpush L v3
 - lrange L 0 2  
 > Note: one list max storage 2^32-1 elements
+> redis中的list操作命令中删除指定key中的所有记录命令：  
+'''
+ltrim key 1 0
+'''
+> 即 ltrim key start end 中的start要比end大即可，数值且都为正数。  
 4. Set(unsort set)
 - format: `sadd key member`
 - sadd s 1
