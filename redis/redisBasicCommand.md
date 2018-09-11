@@ -18,7 +18,7 @@
 - lpush L v2
 - lpush L v3
 - lrange L 0 2  
-> Note: one list max storage 2^32-1 elements
+> Note: one list max storage 2^32-1 elements  
 > redis中的list操作命令中删除指定key中的所有记录命令：  
 '''
 ltrim key 1 0
