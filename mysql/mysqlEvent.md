@@ -2,7 +2,7 @@
 eg:  
 每天定时清理 test表, create_time超过7天的数据   
 ```
-create event e_delete_test on schedule every 1 DAY STARTS '2019-04-18 00:05:00' on completion preserve enable comment 'clear test table data that more than 7 days' DO delete from test where to_days(NOW())-to_days(create_time) <= 7;
+create event e_delete_test on schedule every 1 DAY STARTS '2019-04-18 00:05:00' on completion preserve enable comment 'clear test table data that more than 7 days' DO delete from test where date(create_time) <=date_sub(CURDATE(), INTERVAL 7 DAY);
 ```
 ## Reference  
 [Mysql 时间操作（当天，昨天，7天，30天，半年，全年，季度）](https://josh-persistence.iteye.com/blog/2128275)  
